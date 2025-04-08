@@ -46,22 +46,15 @@ def main():
         showlegend=False
     )
 
-    # Write pie chart to HTML with proper structure
-    with open('C:/Users/vigge/Dropbox/Activity Watcher/index.html', 'w', encoding='utf-8') as f:
-        f.write('''\
-        <!DOCTYPE html>
-        <html>
-            <head>
-                <meta charset="UTF-8">
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <style>#pie-chart {width:100%;height:100vh;}</style>
-            </head>
-            <body style="margin:0;padding:0;">
-                {}
-            </body>
-        </html>'''.format(pie_fig.to_html(include_plotlyjs=True, full_html=False, div_id='pie-chart',
-                                          config={'responsive': True})))
-    print("Report generated successfully at C:/Users/vigge/Dropbox/Activity Watcher/index.html")
+    # Write pie chart to index.html with utf-8 encoding
+    with open('C:/Users/vigge/.Coding/Moce-DV/Python/index.html', 'w', encoding='utf-8') as f:
+        f.write(
+            '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body style="margin:0;padding:0;">')
+        f.write(pie_fig.to_html(include_plotlyjs=True, full_html=False, div_id='pie-chart',
+                                config={'responsive': True}))
+        f.write('<style>#pie-chart {width:100%;height:100vh;}</style>')
+        f.write('</body></html>')
+    print("Report generated successfully at C:/Users/vigge/.Coding/Moce-DV/Python/index.html")
 
 
 if __name__ == '__main__':
